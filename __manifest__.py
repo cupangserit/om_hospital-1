@@ -22,7 +22,8 @@
     ],
     'data': [
         'views/patient.xml',
-        'security/ir.model.access.csv'
+        'security/ir.model.access.csv',
+        'data/sequence.xml'
     ],
     #'demo': [''],
     'installable': True,
