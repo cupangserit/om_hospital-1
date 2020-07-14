@@ -17,7 +17,8 @@
     'website': 'digitalfarmer.github.io',
     'license': 'AGPL-3',
     'depends': [
-        'base'
+        'base',
+        'mail'
     ],
     'data': [
         'views/patient.xml',
