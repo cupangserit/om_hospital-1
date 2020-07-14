@@ -12,6 +12,14 @@ class HospitalPatient(models.Model):
     _description = 'Patient Record'
     _rec_name = 'patient_name'
 
+    @api.depends('age_group')
+    def set_age_group(self):
+        for rec in self:
+            if rec.patient_age:
+                if rec.patient_age<18:
+                    rec.age_group='minor'
+                else:
+                    rec.age_group='major'
 
     # define field of patient
     name = fields.Char('Test')
@@ -22,6 +30,10 @@ class HospitalPatient(models.Model):
         ('female', 'Female'),
         ('trans', 'Transgender')
     ], 'Gender', default='male')
+    age_group = fields.Selection([
+        ('major','Major'),
+        ('minor', 'Minor')
+    ], 'Age Group', compute='set_age_group')
     patient_name = fields.Char('Name', required=True, track_visibility='always')
     patient_age = fields.Integer('Age',track_visibility='onchange')
     notes = fields.Text('Registration Notes')
