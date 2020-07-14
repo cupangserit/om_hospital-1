@@ -20,9 +20,9 @@
         'base'
     ],
     'data': [
-
+        'views/patient.xml'
     ],
-    'demo': [''],
+    #'demo': [''],
     'installable': True,
     'application': True,
     'sequence': '5',
