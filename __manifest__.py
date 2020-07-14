@@ -18,7 +18,8 @@
     'license': 'AGPL-3',
     'depends': [
         'base',
-        'mail'
+        'mail',
+        'sale'
     ],
     'data': [
         'views/patient.xml',

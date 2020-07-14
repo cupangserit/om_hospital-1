@@ -1,5 +1,10 @@
 from odoo import fields, models, api, _
 
+class SalesOrderInherit(models.Model):
+    _inherit = 'sale.order'
+
+    patient_name= fields.Char('Patient Name')
+
 class HospitalPatient(models.Model):
     # define name of table
     _name = 'hospital.patient'
