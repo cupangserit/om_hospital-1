@@ -23,6 +23,7 @@
     ],
     'data': [
         'views/patient.xml',
+        'views/appointment.xml',
         'security/ir.model.access.csv',
         'data/sequence.xml'
     ],

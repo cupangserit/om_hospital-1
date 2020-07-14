@@ -106,5 +106,5 @@
     <!-- Root Menu Hospital -->
     <menuitem id="hospital_root" name="Hospital" sequence="0" web_icon="om_hospital.static/description/icon.png"/>
     <!-- Menu Patient -->
-    <menuitem id="hospital_patient" name="Patient" parent="hospital_root" action="patient_action_view"/>
+    <menuitem id="hospital_patient" name="Patient" parent="hospital_root" action="patient_action_view" sequence="0"/>
 </odoo>
