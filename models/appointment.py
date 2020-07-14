@@ -6,7 +6,9 @@ class HospitalAppointment(models.Model):
     _name = 'hospital.appointment'
     _description = 'Appointment'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _order = 'appointment_date desc'
 
+    #namesequence
     @api.model
     def create(self, vals):
         if vals.get('name', _('New')) == _('New'):
@@ -14,8 +16,11 @@ class HospitalAppointment(models.Model):
         result = super(HospitalAppointment, self).create(vals)
         return result
 
+    #defaultvaluenote
+    def _get_default_note(self):
+        return 'Patient BPJS Maksimal 3 Hari 3 Malam'
     name= fields.Char('Appointment ID', required=True, copy=False, readOnly=True, index=True, default=lambda self: _('New'))
     patient_id=fields.Many2one('hospital.patient',string='Patient ID', required=True)
     patient_age=fields.Integer('Age' , related='patient_id.patient_age')
-    notes=fields.Text('Registration Notes')
+    notes=fields.Text('Registration Notes', default=_get_default_note)
     appointment_date= fields.Date('Date', required=True)

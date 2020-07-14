@@ -31,6 +31,23 @@ class HospitalPatient(models.Model):
                 else:
                     rec.age_group='major'
 
+    #action object smart button
+    @api.multi
+    def open_patient_appointment(self):
+        return {
+            'name':_('Appointments'),
+            'domain':[('patient_id','=',self.id)],
+            'view_type':'form',
+            'res_model':'hospital.appointment',
+            'view_id':False,
+            'view_mode':'tree,form',
+            'type':'ir.actions.act_window',
+        }
+
+    def get_appointment_count(self):
+        count =self.env['hospital.appointment'].search_count([('patient_id','=',self.id)])
+        self.appointment_count= count
+
     # define field of patient
     name = fields.Char('Test')
     name_seq = fields.Char('Patient ID', required=True, copy=False, readonly=True,
@@ -48,7 +65,8 @@ class HospitalPatient(models.Model):
     patient_age = fields.Integer('Age',track_visibility='always')
     notes = fields.Text('Registration Notes')
     image = fields.Binary('Image', attachment=True)
-
+    #add counting number smartbutton
+    appointment_count= fields.Integer('Appointment', compute='get_appointment_count')
 
 
 
