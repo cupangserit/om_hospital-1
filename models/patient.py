@@ -8,18 +8,27 @@ class SalesOrderInherit(models.Model):
 class HospitalPatient(models.Model):
     # define name of table
     _name = 'hospital.patient'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Patient Record'
     _rec_name = 'patient_name'
-    _inherit = ['mail.thread','mail.activity.mixin']
+
 
     # define field of patient
+    name = fields.Char('Test')
+    name_seq = fields.Char('Patient ID', required=True, copy=False, readonly=True,
+                           index=True, default=lambda self: _('New'))
+    gender = fields.Selection([
+        ('male', 'Male'),
+        ('female', 'Female'),
+        ('trans', 'Transgender')
+    ], 'Gender', default='male')
     patient_name = fields.Char('Name', required=True, track_visibility='always')
     patient_age = fields.Integer('Age',track_visibility='onchange')
-    notes = fields.Text('Notes')
-    image = fields.Binary('Image')
-    name = fields.Char('Test')
-    name_seq = fields.Char('Name Seq', required=True, copy=False, readonly=True,
-                           index=True, default=lambda  self: _('New'))
+    notes = fields.Text('Registration Notes')
+    image = fields.Binary('Image', attachment=True)
+
+
+
 
 
     # Name sequence number otomatis
