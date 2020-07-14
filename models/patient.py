@@ -35,7 +35,7 @@ class HospitalPatient(models.Model):
         ('minor', 'Minor')
     ], 'Age Group', compute='set_age_group')
     patient_name = fields.Char('Name', required=True, track_visibility='always')
-    patient_age = fields.Integer('Age',track_visibility='onchange')
+    patient_age = fields.Integer('Age',track_visibility='always')
     notes = fields.Text('Registration Notes')
     image = fields.Binary('Image', attachment=True)
 
