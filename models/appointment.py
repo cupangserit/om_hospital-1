@@ -6,7 +6,7 @@ class HospitalAppointment(models.Model):
     _name = 'hospital.appointment'
     _description = 'Appointment'
     _inherit = ['mail.thread', 'mail.activity.mixin']
-    _order = 'appointment_date desc'
+    _order = 'id desc'
 
     #namesequence
     @api.model
@@ -24,3 +24,10 @@ class HospitalAppointment(models.Model):
     patient_age=fields.Integer('Age' , related='patient_id.patient_age')
     notes=fields.Text('Registration Notes', default=_get_default_note)
     appointment_date= fields.Date('Date', required=True)
+
+    state = fields.Selection([
+        ('draft','Draft'),
+        ('confirm', 'Confirm'),
+        ('done', 'Done'),
+        ('cancel', 'cancel'),
+    ], 'Status', readonly=True, default='draft')
