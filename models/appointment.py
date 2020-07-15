@@ -31,6 +31,8 @@ class HospitalAppointment(models.Model):
     patient_id=fields.Many2one('hospital.patient',string='Patient ID', required=True)
     patient_age=fields.Integer('Age' , related='patient_id.patient_age')
     notes=fields.Text('Registration Notes', default=_get_default_note)
+    doctor_notes = fields.Text('Notes', default=_get_default_note)
+    pharmacy_notes = fields.Text('Notes', default=_get_default_note)
     appointment_date= fields.Date('Date', required=True)
 
     state = fields.Selection([
