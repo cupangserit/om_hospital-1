@@ -8,6 +8,14 @@ class HospitalAppointment(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'id desc'
 
+    def action_confirm(self):
+        for rec in self:
+            self.state = 'confirm'
+
+    def action_done(self):
+        for rec in self:
+            self.state = 'done'
+
     #namesequence
     @api.model
     def create(self, vals):

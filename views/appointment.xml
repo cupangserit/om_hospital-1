@@ -10,6 +10,7 @@
                 <field name="patient_id"/>
                 <field name="patient_age"/>
                 <field name="appointment_date"/>
+                <field name="state"/>
             </tree>
         </field>
     </record>
@@ -21,6 +22,8 @@
         <field name="arch" type="xml">
             <form string="Appointments">
                 <header>
+                    <button name="action_confirm" type="object" states="draft" class="oe_highlight"  string="Confirm"/>
+                    <button name="action_done" type="object" states="confirm" class="oe_highlight"  string="Done"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
                 </header>
                 <sheet>
