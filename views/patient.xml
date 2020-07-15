@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+    <!-- OPen Appointment from smart button type action-->
+    <record id="open_patient_appointment" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('patient_id','=',active_ids)]</field>
+        <field name="context">{}</field>
+    </record>
 
     <!-- Default Search View -->
     <record id="hospital_patient_search" model="ir.ui.view">
@@ -57,6 +66,9 @@
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="open_patient_appointment"  type="object" class="oe_stat_button" icon="fa-calendar">
+                            <field name="appointment_count" string="Appointment" widget="statinfo"/>
+                        </button>
+                        <button name="%(open_patient_appointment)d"  type="action" class="oe_stat_button" icon="fa-home">
                             <field name="appointment_count" string="Appointment" widget="statinfo"/>
                         </button>
                     </div>
