@@ -77,6 +77,7 @@ class HospitalPatient(models.Model):
     image = fields.Binary('Image', attachment=True)
     #add counting number smartbutton
     appointment_count= fields.Integer('Appointment', compute='get_appointment_count')
+    active =fields.Boolean('Active', default=True)
 
 
 
