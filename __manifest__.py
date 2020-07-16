@@ -27,7 +27,8 @@
         'reports/report.xml',
         'reports/patient_card.xml',
         'security/ir.model.access.csv',
-        'data/sequence.xml'
+        'data/sequence.xml',
+        'data/data.xml'
     ],
     #'demo': [''],
     'installable': True,
