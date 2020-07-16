@@ -6,9 +6,10 @@
             id="report_patient_card"
             model="hospital.patient"
             report_type="qweb-pdf"
+            menu="True"
             string="Patient Card"
             name="om_hospital.report_patient"
             file="om_hospital.report_patient"
         />
-
+<!--for disable in menu set attribute menu to False-->
 </odoo>
