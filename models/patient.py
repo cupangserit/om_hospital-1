@@ -49,7 +49,7 @@ class HospitalPatient(models.Model):
         self.appointment_count= count
 
     # define field of patient
-    name = fields.Char('Test')
+    name = fields.Char('Contact Number')
     name_seq = fields.Char('Patient ID', required=True, copy=False, readonly=True,
                            index=True, default=lambda self: _('New'))
     gender = fields.Selection([
