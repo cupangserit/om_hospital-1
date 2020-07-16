@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    <template id="report_patient_cards">-->
+<!--        <t t-call="web.html_container">-->
+<!--            <t t-foreach="docs" t-as="doc">-->
+<!--                <h2>Patient Card</h2>-->
+<!--            </t>-->
+<!--        </t>-->
+<!--    </template>-->
+
+    <template id="report_patient">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+    <!--                <t t-call="om_hospital.report_patient_cards"/>-->
+                    <h2>Test Print</h2>
+                    <p>Test : <t t-esc="doc.name"/></p>
+                    <p>Age  : <t t-esc="doc.patient_age"/></p>
+                    <p>Patient Name : <t t-esc="doc.patient_name"/></p>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

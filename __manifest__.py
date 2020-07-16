@@ -25,6 +25,7 @@
         'views/patient.xml',
         'views/appointment.xml',
         'reports/report.xml',
+        'reports/patient_card.xml',
         'security/ir.model.access.csv',
         'data/sequence.xml'
     ],
