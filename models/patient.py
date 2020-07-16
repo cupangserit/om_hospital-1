@@ -67,6 +67,7 @@ class HospitalPatient(models.Model):
         ('female', 'Female'),
         ('trans', 'Transgender')
     ], 'Gender', default='male')
+
     age_group = fields.Selection([
         ('major','Major'),
         ('minor', 'Minor')
@@ -78,6 +79,7 @@ class HospitalPatient(models.Model):
     #add counting number smartbutton
     appointment_count= fields.Integer('Appointment', compute='get_appointment_count')
     active =fields.Boolean('Active', default=True)
+    doctor_id=fields.Many2one('hospital.doctor', 'Doctor')
 
 
 
