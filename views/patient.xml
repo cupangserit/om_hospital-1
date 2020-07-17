@@ -78,7 +78,7 @@
                 <header>
                     <button name="%(create_appointment_wizard)d" type="action" class="btn-primary"
                             string="Create Appointment" context="{'default_patient_id': active_id}"/>
-                    <button name="action_send_card" type="object"  string="Send By Email" class="oe_highlight"/>
+                    <button name="action_send_card" type="object"  string="Send By Email" class="oe_highlight" groups="om_hospital.group_hospital_manager"/>
                 </header>
 
                 <sheet>
@@ -115,7 +115,7 @@
                         </group>
                         <group>
 
-                            <field name="name"/>
+                            <field name="name" groups="om_hospital.group_hospital_manager"/>
                             <field name="email_id"/>
                              <field name="age_group"/>
                             <field name="name_seq"/>
