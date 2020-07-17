@@ -63,7 +63,8 @@
         <field name="arch" type="xml">
             <form string="Patients">
                 <header>
-                    <button name="%(create_appointment_wizard)d" type="action" class="btn-primary" string="Create Appointment"/>
+                    <button name="%(create_appointment_wizard)d" type="action" class="btn-primary"
+                            string="Create Appointment" context="{'default_patient_id': active_id}"/>
                 </header>
 
                 <sheet>
