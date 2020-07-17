@@ -13,4 +13,5 @@ class CreateAppointment(models.TransientModel):
             'appointment_date': self.appointment_date,
             'notes': 'Create From the Wizard/Code'
         }
+        self.patient_id.message_post(body="appointment berhasil dibuat", subject="Appointment")
         self.env['hospital.appointment'].create(vals)
