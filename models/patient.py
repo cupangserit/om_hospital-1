@@ -95,6 +95,8 @@ class HospitalPatient(models.Model):
     appointment_count= fields.Integer('Appointment', compute='get_appointment_count')
     active =fields.Boolean('Active', default=True)
     doctor_id=fields.Many2one('hospital.doctor', 'Doctor')
+    email_id=fields.Char('Email')
+    user_id=fields.Many2one('res.users', 'PRO')
     doctor_gender= fields.Selection([
         ('male','Male'),
         ('female', 'Female')

@@ -31,7 +31,8 @@
         'security/ir.model.access.csv',
         'security/security.xml',
         'data/sequence.xml',
-        'data/data.xml'
+        'data/data.xml',
+        'data/mail_template.xml'
 
     ],
     #'demo': [''],
