@@ -73,6 +73,14 @@ class HospitalPatient(models.Model):
             if rec.doctor_id:
                 rec.doctor_gender = rec.doctor_id.gender
 
+        # Sending Email in Button Click
+    # https://www.youtube.com/watch?v=CZVRmtv6re0&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=44
+    def action_send_card(self):
+        # sending the patient report to patient via email
+        template_id = self.env.ref('om_hospital.patient_card_email_template').id
+        template = self.env['mail.template'].browse(template_id)
+        template.send_mail(self.id, force_send=True)
+
     # define field of patient
     name = fields.Char('Contact Number')
     name_seq = fields.Char('Patient ID', required=True, copy=False, readonly=True,
