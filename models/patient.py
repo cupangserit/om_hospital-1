@@ -24,6 +24,13 @@ class HospitalPatient(models.Model):
     _description = 'Patient Record'
     _rec_name = 'patient_name'
 
+    @api.multi
+    def name_get(self):
+        res =[]
+        for rec in self:
+            res.append((rec.id, '%s - %s' %(rec.name_seq, rec.patient_name)))
+        return res
+
     #for constrains
     @api.constrains('patient_age')
     def check_age(self):
@@ -54,10 +61,12 @@ class HospitalPatient(models.Model):
             'type':'ir.actions.act_window',
         }
 
+    #get counting number
     def get_appointment_count(self):
         count =self.env['hospital.appointment'].search_count([('patient_id','=',self.id)])
         self.appointment_count= count
 
+    #onchange doctor ang get gender
     @api.onchange('doctor_id')
     def set_doctor_gender(self):
         for rec in self:
