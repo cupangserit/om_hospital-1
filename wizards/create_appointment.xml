@@ -13,6 +13,7 @@
                 </sheet>
                 <footer>
                     <button name="create_appointment" string="Create" type="object" class="btn-primary"/>
+                    <button name="get_data" string="GetData" type="object" class="btn-primary"/>
                     <button string="Cancel" special="cancel" class="btn-secondary"/>
                 </footer>
             </form>
