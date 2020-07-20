@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-<!-- QWeb Reports -->
-<!-- Patient Card Report -->
+        <!-- QWeb Reports -->
+        <!-- Patient Card Report -->
         <report
             id="report_patient_card"
             model="hospital.patient"
@@ -11,5 +11,14 @@
             name="om_hospital.report_patient"
             file="om_hospital.report_patient"
         />
-<!--for disable in menu set attribute menu to False-->
+        <!--for disable in menu set attribute menu to False-->
+
+        <!--create report xls menu-->
+        <report
+                id="report_patient_card_xls"
+                string="Patient Card Excel"
+                model="hospital.patient"
+                report_type="xlsx"
+                name="om_hospital.report_patient_xls"
+                file="om_hospital.report_patient_xls"/>
 </odoo>
