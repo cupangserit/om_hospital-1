@@ -109,9 +109,17 @@ class HospitalPatient(models.Model):
         ('male','Male'),
         ('female', 'Female')
     ], string='Doctor Gender')
+    patient_name_upper = fields.Char(compute='_compute_upper_name', inverse='_inverse_upper_name')
 
+    @api.depends('patient_name')
+    def _compute_upper_name(self):
+        for rec in self:
+            rec.patient_name_upper= rec.patient_name.upper() if rec.patient_name else False
 
-
+    @api.depends('patient_name')
+    def _inverse_upper_name(self):
+        for rec in self:
+            rec.patient_name = rec.patient_name_upper.lower() if rec.patient_name_upper else False
 
     # Name sequence number otomatis
     @api.model
