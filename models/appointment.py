@@ -29,7 +29,7 @@ class HospitalAppointment(models.Model):
         res = super(HospitalAppointment, self).write(vals)
         print('test write function')
         return res
-    
+
     #defaultvaluenote
     def _get_default_note(self):
         return 'Patient BPJS Maksimal 3 Hari 3 Malam'
