@@ -39,7 +39,7 @@ class HospitalAppointment(models.Model):
     notes=fields.Text('Registration Notes', default=_get_default_note)
     doctor_notes = fields.Text('Notes', default=_get_default_note)
     pharmacy_notes = fields.Text('Notes', default=_get_default_note)
-    appointment_date= fields.Date('Date', required=True)
+    appointment_date= fields.Date('Date', required=True )
     appointment_lines= fields.One2many('hospital.appointment.lines','appointment_id', 'Appointment Lines')
 
     state = fields.Selection([
