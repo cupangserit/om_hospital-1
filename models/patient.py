@@ -24,6 +24,12 @@ class HospitalPatient(models.Model):
     _description = 'Patient Record'
     _rec_name = 'patient_name'
 
+    #call cron job
+    @api.multi
+    def test_cron_job(self):
+        print('Test Cron')
+        #code to execute cron
+
     @api.multi
     def name_get(self):
         res =[]
