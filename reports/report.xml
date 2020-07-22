@@ -5,9 +5,9 @@
         <report
             id="report_patient_card"
             model="hospital.patient"
+            string="Patient Card"
             report_type="qweb-pdf"
             menu="True"
-            string="Patient Card"
             name="om_hospital.report_patient"
             file="om_hospital.report_patient"
         />
