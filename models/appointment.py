@@ -34,6 +34,11 @@ class HospitalAppointment(models.Model):
         print('test write function')
         return res
 
+    @api.onchange('partner_id')
+    def onchange_method(self):
+        for rec in self:
+            return {'domain':{'order_id':[('partner_id','=',rec.partner_id.id)]}}
+
     #defaultvaluenote
     def _get_default_note(self):
         return 'Patient BPJS Maksimal 3 Hari 3 Malam'
@@ -45,7 +50,9 @@ class HospitalAppointment(models.Model):
     pharmacy_notes = fields.Text('Notes', default=_get_default_note)
     appointment_date= fields.Date('Date', required=True )
     appointment_lines= fields.One2many('hospital.appointment.lines','appointment_id', 'Appointment Lines')
-
+    appointment_datetime = fields.Datetime('Date Time')
+    partner_id = fields.Many2one('res.partner', 'Customer')
+    order_id = fields.Many2one('sale.order', 'Sales Order')
     state = fields.Selection([
         ('draft','Draft'),
         ('confirm', 'Confirm'),
