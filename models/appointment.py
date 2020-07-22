@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import pytz
+
 from odoo import  fields, models, api, _
 
 
@@ -10,6 +12,10 @@ class HospitalAppointment(models.Model):
 
     def delete_lines(self):
         for rec in self:
+            print("Time in UTC" ,rec.appointment_datetime)
+            usr_tx = pytz.timezone(self.env.context.get('tz') or self.env.user.tz)
+            date_today= pytz.utc.localize(rec.appointment_datetime).astimezone(usr_tx)
+            print("Time in Local Timezone ..", date_today)
             rec.appointment_lines = [(5,0,0)]
 
     def action_confirm(self):
