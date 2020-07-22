@@ -24,6 +24,11 @@ class HospitalPatient(models.Model):
     _description = 'Patient Record'
     _rec_name = 'patient_name'
 
+    @api.multi
+    def print_report(self):
+        return self.env.ref('om_hospital.report_patient_card').report_action(self)
+        pass
+
     #call cron job
     @api.multi
     def test_cron_job(self):
