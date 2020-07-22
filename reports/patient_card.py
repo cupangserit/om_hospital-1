@@ -16,8 +16,8 @@ class PatientCardReport(models.AbstractModel):
                 'appointment_date': app.appointment_date
             }
             appointments_list.append(vals)
-        print ('Appointment', appointments)
-        print('Appointment_list', appointments_list)
+        # print ('Appointment', appointments)
+        # print('Appointment_list', appointments_list)
         return {
             'doc_model': 'hospital.patient',
             'data': data,

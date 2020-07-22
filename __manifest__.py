@@ -19,7 +19,8 @@
     'depends': [
         'base',
         'mail',
-        'sale'
+        'sale',
+        'snailmail_account'
     ],
     'data': [
         'wizards/create_appointment.xml',
