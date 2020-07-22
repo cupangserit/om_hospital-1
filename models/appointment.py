@@ -8,6 +8,10 @@ class HospitalAppointment(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'id desc'
 
+    def delete_lines(self):
+        for rec in self:
+            rec.appointment_lines = [(5,0,0)]
+
     def action_confirm(self):
         for rec in self:
             self.state = 'confirm'

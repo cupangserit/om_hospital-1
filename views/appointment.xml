@@ -24,6 +24,7 @@
                 <header>
                     <button name="action_confirm" type="object" states="draft" class="oe_highlight"  string="Confirm"/>
                     <button name="action_done" type="object" states="confirm" class="oe_highlight"  string="Done"/>
+                   <button name="delete_lines" type="object" string="Delete" class="oe_highlight"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
                 </header>
                 <sheet>

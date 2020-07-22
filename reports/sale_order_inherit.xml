@@ -6,7 +6,6 @@
                 <xpath expr="//div[@id='informations'][1]" position="after">
                     <div  class="col-auto mw-100 mb-2">
                         <strong>Inherit Hospital:</strong>
-
                     </div>
                 </xpath>
             </template>
