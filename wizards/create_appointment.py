@@ -4,8 +4,12 @@ class CreateAppointment(models.TransientModel):
     _name = 'create.appointment'
     _description = 'Create Appointment'
 
-    patient_id= fields.Many2one('hospital.patient', 'Patient')
+    patient_id= fields.Many2one('hospital.patient', 'Patient', ondelete="cascade")
     appointment_date= fields.Date('Date')
+
+    def delete_patient(self):
+        for rec in self:
+            rec.patient_id.unlink()
 
     def create_appointment(self):
         vals= {
