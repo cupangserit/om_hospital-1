@@ -9,7 +9,7 @@ class CreateAppointment(models.TransientModel):
 
     def delete_patient(self):
         for rec in self:
-            rec.patient_id.unlink()
+            rec.patient_id= [(5,0)]
 
     def create_appointment(self):
         vals= {

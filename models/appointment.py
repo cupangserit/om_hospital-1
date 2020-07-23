@@ -45,6 +45,12 @@ class HospitalAppointment(models.Model):
         for rec in self:
             return {'domain':{'order_id':[('partner_id','=',rec.partner_id.id)]}}
 
+    @api.model
+    def default_get(self, fields):
+        res = super(HospitalAppointment, self).default_get(fields)
+        res['patient_id']=1
+        return res
+
     #defaultvaluenote
     def _get_default_note(self):
         return 'Patient BPJS Maksimal 3 Hari 3 Malam'
