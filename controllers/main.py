@@ -10,3 +10,5 @@ class Hospital(http.Controller):
         return http.request.render('om_hospital.patient_page',{
             'patients':patients
         })
+
+    #@http.route('/hospital/doctor'):

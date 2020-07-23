@@ -20,7 +20,10 @@
         'base',
         'mail',
         'sale',
-        'snailmail_account'
+        'snailmail_account',
+        'report_xlsx',
+        'board',
+        'crm'
     ],
     'data': [
         'wizards/create_appointment.xml',
@@ -29,6 +32,7 @@
         'views/doctor.xml',
         'views/lab.xml',
         'views/template.xml',
+        'views/settings.xml',
         'reports/report.xml',
         'reports/patient_card.xml',
         'reports/sale_order_inherit.xml',

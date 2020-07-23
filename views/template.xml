@@ -7,19 +7,21 @@
             <table class="table table-condensed">
                 <thead>
                     <tr>
-                        <td>
-                            Patient Name
-                        </td>
-                        <td>
-                            Age
-                        </td>
+                        <td>Patient ID</td>
+                        <td>Patient Name</td>
+                        <td>Age</td>
+                        <td>Gender</td>
+                        <td>Contact</td>
                     </tr>
                 </thead>
                 <tbody>
                     <t t-foreach="patients" t-as="pat">
                         <tr>
+                            <td><t t-esc="pat.name_seq"/></td>
                             <td><t t-esc="pat.patient_name"/></td>
                             <td><t t-esc="pat.patient_age"/></td>
+                            <td><t t-esc="pat.gender"/></td>
+                            <td><t t-esc="pat.name"/></td>
                         </tr>
                     </t>
                 </tbody>
