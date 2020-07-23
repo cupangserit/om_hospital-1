@@ -28,6 +28,7 @@
         'views/appointment.xml',
         'views/doctor.xml',
         'views/lab.xml',
+        'views/template.xml',
         'reports/report.xml',
         'reports/patient_card.xml',
         'reports/sale_order_inherit.xml',
@@ -44,4 +45,5 @@
     'application': True,
     'sequence': '5',
     'auto_install': False,
+
 }

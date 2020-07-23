@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="patient_page" name="Hospital Patient">
+        <t t-call="website.layout">
+            <div class="container">
+                Patient List
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>
+                            Patient Name
+                        </td>
+
+                        <td>
+                            Age
+                        </td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="patients" t-as="pat">
+                        <tr>
+                            <td><t t-esc="pat.patient_name"/></td>
+                            <td><t t-esc="pat.patient_age"/></td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+            </div>
+        </t>
+    </template>
+</odoo>
