@@ -19,11 +19,10 @@
     'depends': [
         'base',
         'mail',
-        'sale',
         'snailmail_account',
         'report_xlsx',
         'board',
-        'crm',
+        'sale',
     ],
     'data': [
         'wizards/create_appointment.xml',
