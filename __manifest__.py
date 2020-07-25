@@ -35,6 +35,7 @@
         'views/settings.xml',
         'views/sale_order.xml',
         'reports/report.xml',
+        'reports/appointment.xml',
         'reports/patient_card.xml',
         'reports/sale_order_inherit.xml',
         'security/ir.model.access.csv',
