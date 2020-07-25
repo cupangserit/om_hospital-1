@@ -109,7 +109,7 @@
                         <group>
 
                             <field name="patient_name_upper" groups="base.group_no_one"/>
-                           <field name="patient_age"/>
+                           <field name="patient_age" options="{'type':'number','step':1}"/>
                             <field name="gender"/>
 <!--                            <field name="doctor_id" options="{'no_create_edit':True,'no_create':True, 'no_open':True}"/>-->
                             <field name="doctor_id" options="{'no_create_edit':True}"/>
