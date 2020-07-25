@@ -1,5 +1,19 @@
 from odoo import  http
 from odoo.http import request
+from odoo.addons.website_sale.controllers.main import WebsiteSale
+
+
+class WebsiteSaleInherit(WebsiteSale):
+    @http.route([
+        '''/shop''',
+        '''/shop/page/<int:page>''',
+        '''/shop/category/<model("product.public.category", "[('website_id', 'in', (False, current_website_id))]"):category>''',
+        '''/shop/category/<model("product.public.category", "[('website_id', 'in', (False, current_website_id))]"):category>/page/<int:page>'''
+    ], type='http', auth='public', website=True)
+    def shop(self, page=0, category=None, search='', ppg=False, **post):
+        res= super(WebsiteSaleInherit, self).shop(page=0, category=None, search='', ppg=False, **post)
+        print('Hospital Patient Controller inherit')
+        return res
 
 class Hospital(http.Controller):
 
@@ -51,3 +65,4 @@ class Hospital(http.Controller):
             patients.append(vals)
         data ={'status':200, 'response':patients, 'message': 'Success'}
         return data
+
