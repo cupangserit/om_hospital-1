@@ -113,6 +113,7 @@ class HospitalPatient(models.Model):
     #], 'Age Group', compute='set_age_group', store=True) by pass comput field
     patient_name = fields.Char('Name', required=True, track_visibility='always')
     patient_age = fields.Integer('Age',track_visibility='always', group_operator=False)
+    patient_age2 = fields.Float('Age2')
     notes = fields.Text('Registration Notes')
     image = fields.Binary('Image', attachment=True)
     #add counting number smartbutton
