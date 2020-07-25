@@ -49,7 +49,7 @@
                             <field name="patient_age"/>
                         </group>
                         <group>
-                            <field name="appointment_date"/>
+                            <field name="appointment_date" options="{'datepicker':{'daysOfWeekDisabled':[0]}}"/>
                             <field name="appointment_datetime"/>
                             <field name="partner_id"/>
                             <field name="order_id"/>
