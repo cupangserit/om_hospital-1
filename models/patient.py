@@ -14,8 +14,12 @@ class ResPartner(models.Model):
 
 class SalesOrderInherit(models.Model):
     _inherit = 'sale.order'
-
     patient_name= fields.Char('Patient Name')
+
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
+    company_type= fields.Selection(selection_add=[('patient','Patient')])
+    #gender = fields.Selection(selection_add=[('transgender', 'Transgender')])
 
 class HospitalPatient(models.Model):
     # define name of table

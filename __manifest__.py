@@ -23,7 +23,7 @@
         'snailmail_account',
         'report_xlsx',
         'board',
-        'crm'
+        'crm',
     ],
     'data': [
         'wizards/create_appointment.xml',
