@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="sale_order_inherit" model="ir.ui.view">
+        <field name="name">sale.order.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+          <field name="partner_id" position="after">
+              <field name="patient_name"/>
+          </field>
+        </field>
+    </record>
+
+    <record id="sale.action_orders" model="ir.actions.act_window">
+        <field name="name">Appointment</field>
+    </record>
+
+<!--    first method-->
+     <record id="sale.menu_sale_quotations" model="ir.ui.menu">
+        <field name="name">New Quotation</field>
+         <field name="sequence">100</field>
+    </record>
+
+    <!-- second Method -->
+    <menuitem id="sale.menu_sale_order"
+              name="Orders New"
+              parent="sale.sale_order_menu"
+              action="sale.action_orders" sequence="1"/>
+</odoo>

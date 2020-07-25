@@ -33,6 +33,7 @@
         'views/lab.xml',
         'views/template.xml',
         'views/settings.xml',
+        'views/sale_order.xml',
         'reports/report.xml',
         'reports/patient_card.xml',
         'reports/sale_order_inherit.xml',
