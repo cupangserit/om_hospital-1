@@ -33,6 +33,7 @@
         'views/template.xml',
         'views/settings.xml',
         'views/sale_order.xml',
+        'views/dashboard.xml',
         'reports/report.xml',
         'reports/appointment.xml',
         'reports/patient_card.xml',
