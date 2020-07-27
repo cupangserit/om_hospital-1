@@ -56,6 +56,7 @@ class HospitalAppointment(models.Model):
         return 'Patient BPJS Maksimal 3 Hari 3 Malam'
     name= fields.Char('Appointment ID', required=True, copy=False, readOnly=True, index=True, default=lambda self: _('New'))
     patient_id=fields.Many2one('hospital.patient',string='Patient ID', required=True)
+    doctor_id= fields.Many2one('hospital.doctor','Doctor')
     patient_age=fields.Integer('Age' , related='patient_id.patient_age')
     notes=fields.Text('Registration Notes', default=_get_default_note)
     doctor_notes = fields.Text('Notes', default=_get_default_note)
@@ -65,6 +66,7 @@ class HospitalAppointment(models.Model):
     appointment_datetime = fields.Datetime('Date Time')
     partner_id = fields.Many2one('res.partner', 'Customer')
     order_id = fields.Many2one('sale.order', 'Sales Order')
+    amount= fields.Float('Total Ammount')
     state = fields.Selection([
         ('draft','Draft'),
         ('confirm', 'Confirm'),
