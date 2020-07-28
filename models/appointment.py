@@ -62,6 +62,7 @@ class HospitalAppointment(models.Model):
     doctor_notes = fields.Text('Notes', default=_get_default_note)
     pharmacy_notes = fields.Text('Notes', default=_get_default_note)
     appointment_date= fields.Date('Date', required=True )
+    appointment_date_end = fields.Date('End Date')
     appointment_lines= fields.One2many('hospital.appointment.lines','appointment_id', 'Appointment Lines')
     appointment_datetime = fields.Datetime('Date Time')
     partner_id = fields.Many2one('res.partner', 'Customer')
