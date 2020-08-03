@@ -14,6 +14,13 @@ class ResPartner(models.Model):
 
 class SalesOrderInherit(models.Model):
     _inherit = 'sale.order'
+
+    @api.multi
+    def action_confirm(self):
+        print("inherit function sale order working")
+        res = super(SalesOrderInherit, self).action_confirm()
+        return res
+
     patient_name= fields.Char('Patient Name')
 
 class ResPartner(models.Model):
