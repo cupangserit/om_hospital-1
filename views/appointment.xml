@@ -70,7 +70,7 @@
         <field name="name">hospital.appointment.tree</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <tree string="Appointments" decoration-info="state == 'draft'" decoration-success="state == 'done'" decoration-warning="state == 'confirm'" decoration-muted=" state == 'cancel'">
+            <tree banner_route="/om_hospital/appointments" string="Appointments" decoration-info="state == 'draft'" decoration-success="state == 'done'" decoration-warning="state == 'confirm'" decoration-muted=" state == 'cancel'">
                 <field name="name"/>
                 <field name="patient_id"/>
                 <field name="patient_age" avg="Average of Age"/>

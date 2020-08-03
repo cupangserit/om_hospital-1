@@ -15,6 +15,20 @@ class WebsiteSaleInherit(WebsiteSale):
         print('Hospital Patient Controller inherit')
         return res
 
+class AppointmentController(http.Controller):
+
+    @http.route('/om_hospital/appointments', auth='user', type='json')
+    def appointment_bannder(self):
+        return  {
+            'html':"""
+                <div class='o_onboarding o_onboarding_wrap'>
+                    <center>
+                            <img width='1920px' height='192' src='/om_hospital/static/src/img/hospital.jpg'/>
+                    </center>
+                </div>
+            """
+        }
+
 class Hospital(http.Controller):
 
     @http.route('/hospital/patient', website=True, auth='public')
