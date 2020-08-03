@@ -81,6 +81,7 @@
                             string="Create Appointment" context="{'default_patient_id': active_id}"/>
                     <button name="action_send_card" type="object"  string="Send By Email" class="oe_highlight" groups="om_hospital.group_hospital_manager"/>
                     <button name="print_report" type="object" string="Print" class="oe_hightlight" />
+                    <button name="print_report_excel" type="object" string="Print Excel" class="oe_hightlight"  />
                 </header>
 
                 <sheet>

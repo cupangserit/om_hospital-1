@@ -31,7 +31,10 @@ class HospitalPatient(models.Model):
     @api.multi
     def print_report(self):
         return self.env.ref('om_hospital.report_patient_card').report_action(self)
-        pass
+
+    @api.multi
+    def print_report_excel(self):
+        return self.env.ref('om_hospital.report_patient_card_xls').report_action(self)
 
     #call cron job
     @api.multi
