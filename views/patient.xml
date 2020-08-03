@@ -177,6 +177,7 @@
                  <searchpanel>
                      <field name="doctor_id" icon="fa-building"/>
                      <field name="doctor_id" select="multi" icon="fa-tags" />
+                     <field name="gender" />
                  </searchpanel>
              </templates>
         </kanban>
