@@ -14,11 +14,6 @@
         <field name="view_id" ref="om_hospital.appointment_calendar"/>
     </record>
 
-    <record id="act_patient_list" model="ir.actions.act_window">
-        <field name="name">Patient</field>
-        <field name="res_model">hospital.patient</field>
-        <field name="view_mode">tree,form</field>
-    </record>
 <!--    action patient list-->
     <record id="act_patient_list" model="ir.actions.act_window">
         <field name="name">Patient</field>
