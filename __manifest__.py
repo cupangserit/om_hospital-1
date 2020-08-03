@@ -23,7 +23,8 @@
         'report_xlsx',
         'board',
         'sale',
-        'muk_web_searchpanel'
+        'muk_web_searchpanel',
+        'web_notify'
     ],
     'data': [
         'wizards/create_appointment.xml',

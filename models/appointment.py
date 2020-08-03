@@ -28,6 +28,9 @@ class HospitalAppointment(models.Model):
                     'type':'rainbow_man'
                 }
             }
+    def action_notify(self):
+        for rec in self:
+            rec.doctor_id.user_id.notify_success('Appointment')
 
     def action_done(self):
         for rec in self:

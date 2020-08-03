@@ -88,6 +88,7 @@
             <form string="Appointments">
                 <header>
                     <button name="action_confirm" type="object" states="draft" class="oe_highlight"  string="Confirm"/>
+                    <button name="action_notify" type="object" string="Notify" class="oe_highlight" states="draft" />
                     <button name="action_done" type="object"  class="oe_highlight"
                             string="Done" attrs="{'invisible':[('state','!=','confirm')]}"/>
                     <button name="delete_lines" type="object" string="Delete" class="oe_highlight"/>
