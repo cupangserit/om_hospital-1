@@ -92,6 +92,7 @@
                     <button name="action_done" type="object"  class="oe_highlight"
                             string="Done" attrs="{'invisible':[('state','!=','confirm')]}"/>
                     <button name="delete_lines" type="object" string="Delete" class="oe_highlight"/>
+                    <button name="test_recordset" string="Recordset Operation" type="object" class="oe_highlight"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
                 </header>
                 <sheet>

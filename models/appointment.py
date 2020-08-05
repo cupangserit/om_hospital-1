@@ -10,6 +10,18 @@ class HospitalAppointment(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'id desc'
 
+    def test_recordset(self):
+        for rec in self:
+            #print('Odoo ORM : recordset Operation')
+            #search
+            partnerts= self.env['res.partner'].search([])
+            #mapped
+            print ('Partner mapped,...', partnerts.mapped('name'))
+            #sorted reverse to descending
+            print('Partner, Sorted...', partnerts.sorted(lambda o: o.create_date, reverse=True))
+            #filteres
+            print('Partner, Filtered...', partnerts.filtered(lambda o: o.customer))
+
     def delete_lines(self):
         for rec in self:
             print("Time in UTC" ,rec.appointment_datetime)
