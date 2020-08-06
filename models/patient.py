@@ -35,6 +35,18 @@ class HospitalPatient(models.Model):
     _description = 'Patient Record'
     _rec_name = 'patient_name'
 
+    def action_patients(self):
+        #print('test patient server action')
+        return {
+            'name':_('Patient Server Action'),
+            'domain':[],
+            'view_type':'form',
+            'res_model':'hospital.patient',
+            'view_id':False,
+            'view_mode':'tree,form',
+            'type':'ir.actions.act_window'
+        }
+
     @api.multi
     def print_report(self):
         return self.env.ref('om_hospital.report_patient_card').report_action(self)

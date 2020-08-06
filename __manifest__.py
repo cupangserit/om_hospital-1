@@ -36,6 +36,7 @@
         'views/settings.xml',
         'views/sale_order.xml',
         'views/dashboard.xml',
+        'views/server_action.xml',
         'reports/report.xml',
         'reports/appointment.xml',
         'reports/patient_card.xml',
