@@ -89,6 +89,7 @@ class HospitalAppointment(models.Model):
     appointment_datetime = fields.Datetime('Date Time')
     partner_id = fields.Many2one('res.partner', 'Customer')
     order_id = fields.Many2one('sale.order', 'Sales Order')
+    product_id= fields.Many2one('product.template', 'Product Template')
     amount= fields.Float('Total Ammount')
     state = fields.Selection([
         ('draft','Draft'),
@@ -96,6 +97,19 @@ class HospitalAppointment(models.Model):
         ('done', 'Done'),
         ('cancel', 'cancel'),
     ], 'Status', readonly=True, default='draft')
+
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        for rec in self:
+            lines =[(5,0,0)]
+            #lines =[]
+            for line in self.product_id.product_variant_ids:
+                val = {
+                    'product_id': line.id,
+                    'product_qty':5
+                }
+                lines.append((0,0, val))
+            rec.appointment_lines=lines
 
 class HospitalAppointmentLines(models.Model):
     _name = 'hospital.appointment.lines'
