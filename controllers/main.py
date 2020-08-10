@@ -57,6 +57,10 @@ class Hospital(http.Controller):
     @http.route('/create/webpatient', type="http", auth="public", website=True)
     def create_webpatient(self, **kw):
         request.env['hospital.patient'].sudo().create(kw)
+        doctor_val ={
+            'name': kw.get('patient_name')
+        }
+        request.env['hospital.doctor'].sudo().create(doctor_val)
         return request.render('om_hospital.patient_thanks',{})
 
 
