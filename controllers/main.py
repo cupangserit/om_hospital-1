@@ -50,6 +50,16 @@ class Hospital(http.Controller):
                 args = {'success':True, 'message':'Success'}
         return args
 
+    @http.route('/patient_webform', type="http", auth="public", website=True)
+    def patient_webform(self, **kw):
+        return  http.request.render('om_hospital.create_patient',{})
+
+    @http.route('/create/webpatient', type="http", auth="public", website=True)
+    def create_webpatient(self, **kw):
+        request.env['hospital.patient'].sudo().create(kw)
+        return request.render('om_hospital.patient_thanks',{})
+
+
 
     # building api odoo to get patient
     @http.route('/create_patient',type='json', auth='user')
