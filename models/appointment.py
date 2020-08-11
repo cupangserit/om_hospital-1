@@ -70,7 +70,20 @@ class HospitalAppointment(models.Model):
     @api.model
     def default_get(self, fields):
         res = super(HospitalAppointment, self).default_get(fields)
-        res['patient_id']=1
+        appointment_lines= [(5,0,0)]
+        product_rec = self.env['product.product'].search([])
+        for pro in product_rec:
+            line = (0,0, {
+                'product_id':pro.id,
+                'product_qty':1,
+            })
+            appointment_lines.append(line)
+        res.update({
+            'appointment_lines':appointment_lines,
+            'patient_id':1,
+            #'notes':'Patient BPJS Maksimal 3 Hari 3 Malam'
+        })
+        #res['patient_id']=1
         return res
 
     #defaultvaluenote
