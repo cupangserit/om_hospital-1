@@ -11,3 +11,4 @@ class HospitalDoctor(models.Model):
         ('female', 'female')
     ], 'Gender', default='male')
     user_id = fields.Many2one('res.users', string='Related User')
+    appointment_ids= fields.Many2many('hospital.appointment', 'hospital_patient_rel', 'doctor_id','appointment_id',string='Appointments')
