@@ -116,7 +116,7 @@
 <!--                            <field name="doctor_id" options="{'no_create_edit':True,'no_create':True, 'no_open':True}"/>-->
                             <field name="doctor_id" options="{'no_create_edit':True}"
                                    attrs="{'invisible':[('gender','!=','male')]}"/>
-                            <field name="doctor_gender"/>
+                            <field name="doctor_gender" readonly="1" force_save="1"/>
                             <field name="user_id"/>
                         </group>
                         <group>
