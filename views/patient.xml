@@ -65,7 +65,7 @@
                 <field name="age_group"/>
                 <field name="patient_age"/>
                 <field name="gender"/>
-                <field name="notes"/>
+                <field name="doctor_id" widget="many2onebutton"/>
             </tree>
         </field>
     </record>
