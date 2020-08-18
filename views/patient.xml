@@ -125,6 +125,7 @@
                             <field name="email_id"/>
                              <field name="age_group"/>
                             <field name="name_seq"/>
+                            <field name="company_id" groups="base.group_multi_company" />
                         </group>
 
                         <group>

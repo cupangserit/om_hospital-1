@@ -6,8 +6,8 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <notebook position="inside">
-               <page name="sale_purchases" poeition="after">
+<!--            <notebook position="inside">-->
+               <page name="sales_purchases" position="after">
                 <page string="Hospital" name="hospital">
                     <group>
                         <field name="ref"/>
@@ -15,7 +15,7 @@
                     </group>
                 </page>
                </page>
-            </notebook>
+<!--            </notebook>-->
         </field>
     </record>
 </odoo>

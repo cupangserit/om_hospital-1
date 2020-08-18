@@ -68,4 +68,13 @@
         <field name="groups" eval="[(4, ref('group_hospital_manager'))]"/>
     </record>
 
+    <record id="patient_multi_company_rule" model="ir.rule">
+        <field name="name">Patient Multi Company Rule</field>
+        <field ref="model_hospital_patient" name="model_id"/>
+        <field name="global" eval="1"/>
+        <!-- You can attach this rule to a specific group, Or make it Global -->
+        <field name="domain_force">['|',('company_id','=',False), ('company_id','child_of',[user.company_id.id])]</field>
+        <!--<field name="global" eval="1"/> -->
+    </record>
+
 </odoo>

@@ -150,6 +150,7 @@ class HospitalPatient(models.Model):
         ('female', 'Female')
     ], string='Doctor Gender')
     patient_name_upper = fields.Char(compute='_compute_upper_name', inverse='_inverse_upper_name')
+    company_id= fields.Many2one('res.company', required=True, default=lambda self:self.env.user.company_id)
 
 
     @api.depends('patient_name')
