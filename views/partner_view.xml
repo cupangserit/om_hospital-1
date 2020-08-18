@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+               <page name="sale_purchases" poeition="after">
+                <page string="Hospital" name="hospital">
+                    <group>
+                        <field name="ref"/>
+                        <field name="barcode"/>
+                    </group>
+                </page>
+               </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>
