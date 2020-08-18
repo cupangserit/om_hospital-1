@@ -19,7 +19,11 @@
         <field name="arch" type="xml">
           <field name="partner_id" position="after">
               <field name="patient_name"/>
+              <field name="is_patient"/>
           </field>
+            <button name="preview_sale_order" position="after">
+                <button name="test" string="Test" type="object"/>
+            </button>
         </field>
     </record>
 

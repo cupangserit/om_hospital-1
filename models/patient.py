@@ -21,7 +21,8 @@ class SalesOrderInherit(models.Model):
         res = super(SalesOrderInherit, self).action_confirm()
         return res
 
-    patient_name= fields.Char('Patient Name')
+    patient_name = fields.Char(string='Patient Name')
+    is_patient = fields.Boolean(string='Is Patient')
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
@@ -149,6 +150,7 @@ class HospitalPatient(models.Model):
         ('female', 'Female')
     ], string='Doctor Gender')
     patient_name_upper = fields.Char(compute='_compute_upper_name', inverse='_inverse_upper_name')
+
 
     @api.depends('patient_name')
     def _compute_upper_name(self):
