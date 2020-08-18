@@ -52,7 +52,8 @@ class Hospital(http.Controller):
 
     @http.route('/patient_webform', type="http", auth="public", website=True)
     def patient_webform(self, **kw):
-        return  http.request.render('om_hospital.create_patient',{})
+        doctor_rec = request.env['hospital.doctor'].sudo().search([])
+        return  http.request.render('om_hospital.create_patient',{'doctor_rec':doctor_rec})
 
     @http.route('/create/webpatient', type="http", auth="public", website=True)
     def create_webpatient(self, **kw):
