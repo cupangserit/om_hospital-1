@@ -69,6 +69,13 @@ class HospitalPatient(models.Model):
             res.append((rec.id, '%s - %s' %(rec.name_seq, rec.patient_name)))
         return res
 
+    @api.model
+    def _name_search(self, name='', args=None, operator='ilike', limit=100):
+        if args is None:
+            args=[]
+        domain= args+['|', ('name_seq',operator, name),('patient_name',operator, name)]
+        return super(HospitalPatient, self).search(domain, limit=limit).name_get()
+
     #for constrains
     @api.constrains('patient_age')
     def check_age(self):
