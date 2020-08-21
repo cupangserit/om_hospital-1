@@ -83,6 +83,8 @@ class HospitalPatient(models.Model):
             if rec.patient_age<=5:
                 raise ValidationError(_('The Age Must be Greater than 5'))
 
+            #tes rubah
+
     #for compute field
     @api.depends('age_group')
     def set_age_group(self):
