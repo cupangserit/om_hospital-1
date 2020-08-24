@@ -89,7 +89,18 @@ class HospitalAppointment(models.Model):
         del_patient.unlink()
         print('deleted' , del_patient)
 
-
+        # orm2
+        for rec in self:
+            patient = self.env['hospital.patient'].search([('id','=',16)])
+            print("Contact : ", patient.name)
+            print("Number : ", patient.name_seq)
+            print("patient name : ", patient.patient_name)
+            print("patient age : ", patient.patient_age)
+            print("Gender : ", patient.gender)
+        filter_patient = self.env['hospital.patient'].search([]).filtered(lambda s: s.gender == 'trans')
+        print('patient filtered : ', filter_patient)
+        mapped_patient = self.env['hospital.patient'].search([]).sorted(key='patient_age').mapped('patient_name')
+        print('patient mapped name : ', mapped_patient)
 
     def action_confirm(self):
         for rec in self:
