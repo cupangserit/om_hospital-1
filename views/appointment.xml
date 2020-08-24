@@ -122,7 +122,7 @@
                     <notebook>
                         <page string="Doctor Prescription">
                                 <field name="appointment_lines">
-                                    <tree editable="buttom">
+                                    <tree editable="buttom" >
                                         <field name="sequence" widget="handle" />
                                         <field name="product_id"/>
                                         <field name="product_qty"/>
