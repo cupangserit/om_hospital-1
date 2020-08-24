@@ -30,6 +30,67 @@ class HospitalAppointment(models.Model):
             print("Time in Local Timezone ..", date_today)
             rec.appointment_lines = [(5,0,0)]
 
+    def orm_odoo1(self):
+        #search all
+        hpatients = self.env['hospital.patient'].search([])
+        print('Patients All :', hpatients)
+        # search female
+        female_patients = self.env['hospital.patient'].search([('gender','=','female')])
+        print('Female Patients :', female_patients)
+
+        # search with and
+        male = self.env['hospital.patient'].search([('gender', '=', 'male'),
+                                                    ('patient_age', '>=',30)])
+        print('MAle Patients :', male)
+
+        # search witch or
+        male_or = self.env['hospital.patient'].search(['|',('gender', '=', 'male'),
+                                                    ('patient_age', '>=', 30)])
+        print('MaleOr30 Patients :', male_or)
+
+        # search count
+        patient_count = self.env['hospital.patient'].search_count([])
+        print('count Patients :', patient_count)
+        #ref in from odoo import api, fields, models
+        patient_ref=self.env.ref('om_hospital.patient_xyz')
+        print('Patient Ref :',patient_ref.patient_name)
+        # browse
+        browse_patient= self.env['hospital.patient'].browse(6)
+        if browse_patient.exists():
+            print('Browse exist :', browse_patient)
+        else:
+            print('Not Exists')
+
+        vals = {
+            'patient_name':'Mukidi02',
+            'patient_age':59,
+            'email_id':'mukidioriginal@gmail.com'
+
+        }
+        #created_record=self.env['hospital.patient'].create(vals)
+        #print('Created Record, :', created_record.id)
+
+        # edit patient
+        rec2update= self.env['hospital.patient'].browse(16)
+        if rec2update.exists():
+            vals ={
+                'name':'081910562212',
+                'patient_age':48,
+                'email_id':'mukidi@gmail.com'
+
+            }
+            rec2update.write(vals)
+        # duplicate record
+        # dup_patient = self.env['hospital.patient'].browse(16)
+        # dup_patient.copy()
+
+        # delete
+        del_patient= self.env['hospital.patient'].browse([19,20])
+        del_patient.unlink()
+        print('deleted' , del_patient)
+
+
+
     def action_confirm(self):
         for rec in self:
             rec.state = 'confirm'
