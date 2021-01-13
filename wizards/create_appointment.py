@@ -7,13 +7,6 @@ class CreateAppointment(models.TransientModel):
     patient_id= fields.Many2one('hospital.patient', 'Patient', ondelete="cascade")
     appointment_date= fields.Date('Date')
 
-    class CreateAppointment(models.TransientModel):
-        _name = 'create.appointment'
-        _description = 'Create Appointment Wizard'
-
-        patient_id = fields.Many2one('hospital.patient', string="Patient")
-        appointment_date = fields.Date(string="Appointment Date")
-
     def print_report(self):
          data = {
             'model': 'create.appointment',
